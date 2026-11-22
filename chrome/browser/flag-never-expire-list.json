@@ -146,5 +146,6 @@
   "webrtc-hw-encoding",
   "webtransport-developer-mode",
   "webxr-runtime",
-  "windows-system-tracing"
+  "windows-system-tracing",
+  "windows11-mica-titlebar"
 ]

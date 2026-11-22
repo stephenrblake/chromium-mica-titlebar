@@ -10373,6 +10373,11 @@
     "expiry_milestone": -1
   },
   {
+    "name": "windows11-mica-titlebar",
+    "owners": [ "j@jloeffler.com", "pkasting@chromium.org" ],
+    "expiry_milestone": -1
+  },
+  {
     "name": "writer-api",
     "owners": ["//chrome/browser/ai/OWNERS", "builtin-ai-team@google.com"],
     "expiry_milestone": 170

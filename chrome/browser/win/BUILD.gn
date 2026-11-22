@@ -102,6 +102,7 @@ source_set("impl") {
   ]
 
   deps = [
+    ":mica_titlebar",
     "//chrome/app:chrome_exe_main_exports",
     "//chrome/app:generated_resources",
     "//chrome/app/theme:chrome_unscaled_resources_grit",
@@ -115,6 +116,8 @@ source_set("impl") {
     "//chrome/browser/profiles:profile_util",
     "//chrome/browser/sessions",
     "//chrome/browser/themes",
+    "//chrome/browser/ui/browser_window",
+    "//chrome/browser/ui/views/frame:browser_view_header",
     "//chrome/browser/win/conflicts:module_info",
     "//chrome/chrome_elf:constants",
     "//chrome/chrome_elf:dll_hash",
@@ -153,6 +156,18 @@ static_library("chrome_process_finder") {
     "//base",
     "//chrome/browser/policy:path_parser",
     "//chrome/common:constants",
+  ]
+}
+
+source_set("mica_titlebar") {
+  sources = [
+    "mica_titlebar.cc",
+    "mica_titlebar.h",
+  ]
+  deps = [
+    "//base",
+    "//ui/color:accent_color_observer",
+    "//ui/native_theme",
   ]
 }
 

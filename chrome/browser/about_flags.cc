@@ -350,6 +350,7 @@
 #if BUILDFLAG(IS_WIN)
 #include "chrome/browser/startup/startup_features.h"
 #include "chrome/browser/tracing/tracing_features.h"
+#include "chrome/browser/win/mica_titlebar.h"
 #include "components/stylus_handwriting/win/features.h"
 #endif
 
@@ -11106,6 +11107,10 @@ const FeatureEntry kFeatureEntries[] = {
 #endif  // BUILDFLAG(IS_CHROMEOS)
 
 #if BUILDFLAG(IS_WIN)
+    {"windows11-mica-titlebar",
+     flag_descriptions::kWindows11MicaTitlebarName,
+     flag_descriptions::kWindows11MicaTitlebarDescription, kOsWin,
+     FEATURE_VALUE_TYPE(kWindows11MicaTitlebar)},
     {"windows-system-tracing", flag_descriptions::kWindowsSystemTracingName,
      flag_descriptions::kWindowsSystemTracingDescription, kOsWin,
      FEATURE_VALUE_TYPE(kWindowsSystemTracing)},

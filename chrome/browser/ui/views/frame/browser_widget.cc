@@ -59,6 +59,7 @@
 #endif
 
 #if BUILDFLAG(IS_WIN)
+#include "chrome/browser/win/mica_titlebar.h"
 #include "content/public/browser/desktop_capture_pip_utils.h"
 #include "media/base/media_switches.h"
 #include "media/capture/capture_switches.h"
@@ -632,9 +633,16 @@ bool BrowserWidget::RegenerateFrameOnThemeChange(
   // System and user theme changes can both change frame buttons, so the frame
   // always needs to be regenerated on Linux.
   need_regenerate = true;
-#elif BUILDFLAG(IS_WIN)
+#endif
+
+#if BUILDFLAG(IS_WIN)
+  // In fullscreen, update the theme without rebuilding the Windows frame.
+  // See crbug.com/40646694.
+  // With Mica, toggling titlebar accent colors in the native theme needs a
+  // frame regen to switch between the system-drawn and custom-drawn titlebars.
   need_regenerate |=
-      (theme_change_type == BrowserThemeChangeType::kBrowserTheme) &&
+      (theme_change_type == BrowserThemeChangeType::kBrowserTheme ||
+       SystemTitlebarCanUseMicaMaterial()) &&
       !IsFullscreen();
 #else
   need_regenerate |= theme_change_type == BrowserThemeChangeType::kBrowserTheme;

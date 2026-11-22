@@ -1302,6 +1302,7 @@ if (is_win) {
       ":browser_widget",
       ":browser_window_property_manager_win",
       ":frame",
+      ":opaque_browser_frame_view",
       ":system_menu_insertion_delegate_win",
       ":windows_caption_button",
       "//base",
@@ -1778,6 +1779,7 @@ if (is_win) {
       "//base",
       "//chrome/browser/ui/views",
       "//chrome/browser/ui/views:tab_icon_view",
+      "//ui/base",
       "//ui/base/metadata",
       "//ui/gfx/geometry",
       "//ui/views",
@@ -1794,6 +1796,7 @@ if (is_win) {
       ":frame",
       ":minimize_button_metrics_win",
       ":safe_invoke",
+      "//base:i18n",
       "//chrome/app:chrome_dll_resources",
       "//chrome/app:command_ids",
       "//chrome/browser/themes",
@@ -1809,6 +1812,7 @@ if (is_win) {
       "//chrome/browser/ui/window_feature_controller",
       "//chrome/browser/web_applications",
       "//chrome/browser/win",
+      "//chrome/browser/win:mica_titlebar",
       "//content/public/browser",
       "//skia",
       "//ui/base",
@@ -3408,6 +3412,9 @@ source_set("browser_widget_impl") {
     deps += [ "//ui/linux:linux_ui" ]
   }
   if (is_win) {
-    deps += [ "//media" ]
+    deps += [
+      "//chrome/browser/win:mica_titlebar",
+      "//media",
+    ]
   }
 }

@@ -7268,6 +7268,11 @@ inline constexpr char kWebRtcWgcRequireBorderDescription[] =
     "When using WGC to capture a window or a screen, draw a border around the "
     "captured surface.";
 
+inline constexpr char kWindows11MicaTitlebarName[] = "Windows 11 Mica titlebar";
+inline constexpr char kWindows11MicaTitlebarDescription[] =
+    "Use the system-drawn titlebar with the Mica material on Windows 11 "
+    "when the browser theme and Windows settings allow it.";
+
 inline constexpr char kWindowsSystemTracingName[] = "System tracing";
 inline constexpr char kWindowsSystemTracingDescription[] =
     "When enabled, the system tracing service is started along with Chrome's "
