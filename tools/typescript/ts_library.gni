@@ -78,7 +78,16 @@ template("ts_library") {
     ]
 
     if (defined(in_files)) {
-      args += [ "--in_files" ] + in_files
+      if (host_os == "win" && in_files != []) {
+        # Large WebUI libraries can exceed the Windows process argument limit.
+        response_file_contents = in_files
+        args += [
+          "--in_files_response",
+          "{{response_file_name}}",
+        ]
+      } else {
+        args += [ "--in_files" ] + in_files
+      }
     }
 
     if (defined(path_mappings_file)) {
